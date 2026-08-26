@@ -1,3 +1,5 @@
+using Scalar.AspNetCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -12,6 +14,8 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    // Enable dark mode for the OpenAPI reference
+    app.MapScalarApiReference(opt => opt.DarkMode = true);
 }
 
 app.UseAuthorization();
