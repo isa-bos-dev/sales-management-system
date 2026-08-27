@@ -1,3 +1,4 @@
+using SalesWebApi.Business;
 using Microsoft.EntityFrameworkCore;
 using SalesWebApi.Data;
 using Scalar.AspNetCore;
@@ -14,6 +15,9 @@ var connection = builder.Configuration.GetConnectionString("DefaultConnection");
 
 builder.Services.AddDbContext<AppDbContext>(opt =>
     opt.UseSqlServer(connection));
+
+// Register business service for dependency injection
+builder.Services.AddScoped<SaleBusiness>();
 
 var app = builder.Build();
 

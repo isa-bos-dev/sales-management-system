@@ -45,7 +45,7 @@ namespace SalesWebApi.Migrations
 
                     b.HasKey("SaleId");
 
-                    b.ToTable("Sales");
+                    b.ToTable("Sale");
                 });
 
             modelBuilder.Entity("SalesWebApi.Data.Entities.SaleDetail", b =>

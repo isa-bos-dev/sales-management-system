@@ -1,6 +1,7 @@
 ﻿using SalesWebApi.Data.Enums;
 
-namespace SalesWebApi.DTOs {
+namespace SalesWebApi.DTOs
+{
 
     #region requests
     public record CreateSaleRequest(
@@ -40,5 +41,5 @@ namespace SalesWebApi.DTOs {
         int PageSize,
         int TotalItems);
 
-        #endregion
+    #endregion
 }

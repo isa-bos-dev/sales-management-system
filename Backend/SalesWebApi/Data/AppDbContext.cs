@@ -5,7 +5,7 @@ namespace SalesWebApi.Data
 {
     public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
     {
-        public DbSet<Sale> Sales { get; set; }
+        public DbSet<Sale> Sale { get; set; }
         public DbSet<SaleDetail> SaleDetail { get; set; }
     }
 }

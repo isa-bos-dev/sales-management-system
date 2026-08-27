@@ -12,8 +12,8 @@ using SalesWebApi.Data;
 namespace SalesWebApi.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260826163451_firstMigration")]
-    partial class firstMigration
+    [Migration("20260827144643_Inicial")]
+    partial class Inicial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -48,7 +48,7 @@ namespace SalesWebApi.Migrations
 
                     b.HasKey("SaleId");
 
-                    b.ToTable("Sales");
+                    b.ToTable("Sale");
                 });
 
             modelBuilder.Entity("SalesWebApi.Data.Entities.SaleDetail", b =>

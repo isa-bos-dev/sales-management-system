@@ -6,13 +6,13 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace SalesWebApi.Migrations
 {
     /// <inheritdoc />
-    public partial class firstMigration : Migration
+    public partial class Inicial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Sales",
+                name: "Sale",
                 columns: table => new
                 {
                     SaleId = table.Column<int>(type: "int", nullable: false)
@@ -24,7 +24,7 @@ namespace SalesWebApi.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Sales", x => x.SaleId);
+                    table.PrimaryKey("PK_Sale", x => x.SaleId);
                 });
 
             migrationBuilder.CreateTable(
@@ -42,9 +42,9 @@ namespace SalesWebApi.Migrations
                 {
                     table.PrimaryKey("PK_SaleDetail", x => x.SaleDetailId);
                     table.ForeignKey(
-                        name: "FK_SaleDetail_Sales_SaleId",
+                        name: "FK_SaleDetail_Sale_SaleId",
                         column: x => x.SaleId,
-                        principalTable: "Sales",
+                        principalTable: "Sale",
                         principalColumn: "SaleId",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -62,7 +62,7 @@ namespace SalesWebApi.Migrations
                 name: "SaleDetail");
 
             migrationBuilder.DropTable(
-                name: "Sales");
+                name: "Sale");
         }
     }
 }
