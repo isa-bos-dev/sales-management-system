@@ -19,6 +19,18 @@ builder.Services.AddDbContext<AppDbContext>(opt =>
 // Register business service for dependency injection
 builder.Services.AddScoped<SaleBusiness>();
 
+// Configure CORS policy to allow Angular application origin
+builder.Services.AddCors(opt =>
+{
+    opt.AddPolicy("AngularApp", policy =>
+    {
+        // Target exact Angular development origin without trailing slash
+        policy.WithOrigins("http://localhost:4200/")
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -28,6 +40,9 @@ if (app.Environment.IsDevelopment())
     // Enable dark mode for the OpenAPI reference
     app.MapScalarApiReference(opt => opt.DarkMode = true);
 }
+
+// Enable CORS middleware using the configured policy
+app.UseCors("AngularApp");
 
 app.UseAuthorization();
 
