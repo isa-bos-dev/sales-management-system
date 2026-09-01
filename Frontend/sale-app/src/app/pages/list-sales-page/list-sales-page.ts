@@ -1,14 +1,15 @@
 import { Component, effect, inject, signal } from '@angular/core';
-import { CurrencyPipe } from '@angular/common';
+import { CurrencyPipe} from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { NgbPagination } from '@ng-bootstrap/ng-bootstrap/pagination';
 import { GetSaleResponse } from '../../interfaces/get-sale-response';
 import { SaleService } from '../../services/sale-service';
 import { GetSalesQueryRequest } from '../../interfaces/get-sales-query-request';
+import { MyNavbar } from '../../components/my-navbar/my-navbar';
 
 @Component({
   standalone: true,
-  imports: [NgbPagination, CurrencyPipe, RouterLink],
+  imports: [NgbPagination, RouterLink, CurrencyPipe, MyNavbar],
   selector: 'app-list-sales-page',
   styleUrl: './list-sales-page.css',
   templateUrl: './list-sales-page.html',

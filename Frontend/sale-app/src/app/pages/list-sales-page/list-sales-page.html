@@ -1,14 +1,12 @@
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
-    <div class="container-fluid">
-        <a class="navbar-brand fw-semibold" href="#">
-            Sales Website
-        </a>
-    </div>
-</nav>
 
+<!-- Navbar -->
+    <app-my-navbar/>
+
+<!-- Main content -->
 <div class="container py-4">
-    <!-- Encabezado -->
+
+    <!-- Header -->
     <div class="d-flex justify-content-between align-items-center mb-4">
         <div>
             <h2 class="mb-1">Sales List</h2>
@@ -53,13 +51,11 @@
                                 <td>{{ item.customerName}}</td>
                                 <td>{{ item.saleDate}}</td>
                                 <td>
-                                    <span class="badge" [class]="
-                                    {
+                                    <span class="badge" [class]="{
                                         'text-bg-success': item.paymentTypeName === 'Cash',
                                         'text-bg-primary': item.paymentTypeName === 'Card',
-                                        'text-bg-warning': item.paymentTypeName === 'Transfer',
-                                    }
-                                    "]>
+                                        'text-bg-warning': item.paymentTypeName === 'Transfer'
+                                    }">
                                         {{ item.paymentTypeName}}
                                     </span>
                                 </td>

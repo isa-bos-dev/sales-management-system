@@ -1,1 +1,139 @@
-<p>detail-sale-page works!</p>
+<!-- Navbar -->
+<app-my-navbar/>
+
+<!-- Main content -->
+<div class="container py-4">
+
+    <!-- Header -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="mb-0">
+                Sales Details
+            </h2>
+            <small class="text-secondary">
+                Complete information on the selected sale.
+            </small>
+        </div>
+        <a class="btn btn-outline-secondary" routerLink="/">Back to list</a>
+    </div>
+
+
+    <div class="row g-4">
+        <!-- Information -->
+        <div class="col-lg-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-header fw-semibold">
+                    Sales Information
+                </div>
+
+                <div class="card-body">
+                    <!-- Display the sale ID from the sale model -->
+                    <div class="row mb-3">
+                        <div class="col-5 text-secondary">
+                            Sale N°
+                        </div>
+                        <div class="col fw-semibold">
+                            {{ saleModel().saleId }}
+                        </div>
+                    </div>
+
+                    <!-- Display the customer name from the sale model -->
+                    <div class="row mb-3">
+                        <div class="col-5 text-secondary">
+                            Client
+                        </div>
+                        <div class="col">
+                            {{ saleModel().customerName }}
+                        </div>
+                    </div>
+
+                    <!-- Display the sale date from the sale model -->
+                    <div class="row mb-3">
+                        <div class="col-5 text-secondary">
+                            Payment Type
+                        </div>
+                        <div class="col">
+                            <span class="badge" [class]="{
+                                'text-bg-success': saleModel().paymentTypeName === 'Cash',
+                                'text-bg-primary': saleModel().paymentTypeName === 'Card',
+                                'text-bg-warning': saleModel().paymentTypeName === 'Transfer'
+                            }">
+                                {{ saleModel().paymentTypeName }}
+                            </span>
+                        </div>
+                    </div>
+
+                    <hr>
+                    <!-- Display the total amount from the sale model -->
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="fw-semibold">
+                            Total
+                        </span>
+                        <span class="fs-4 fw-bold text-success">
+                            {{ saleModel().total | currency }}
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Products -->
+
+        <div class="col-lg-8">
+            <div class="card shadow-sm">
+                <div class="card-header fw-semibold">
+                    Products
+                </div>
+
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle mb-0">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Product</th>
+                                    <th class="text-center">
+                                        Quantity
+                                    </th>
+                                    <th class="text-end">
+                                        Unit Price
+                                    </th>
+                                    <th class="text-end">
+                                        Subtotal
+                                    </th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                @for (item of saleModel().details; track $index) {
+                                    <tr>
+                                        <td>{{ $index + 1 }}</td>
+                                        <td>{{ item.productName }}</td>
+                                        <td class="text-center">
+                                            {{ item.quantity }}
+                                        </td>
+                                        <td class="text-end">
+                                            {{ item.unitPrice | currency }}
+                                        </td>
+                                        <td class="text-end">
+                                            {{ item.unitPrice *item.quantity  | currency }}
+                                        </td>
+                                    </tr>
+                                }
+                                <tr>   
+                                    <td class="text-end">
+                                        unitPrice
+                                    </td>
+                                    <td class="text-end">
+                                       0
+                                    </td>
+                                </tr>
+                            </tbody>
+                       </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

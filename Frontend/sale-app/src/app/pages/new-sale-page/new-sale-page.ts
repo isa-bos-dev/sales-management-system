@@ -3,10 +3,12 @@ import { SaleService } from '../../services/sale-service';
 import { form, FormField, required, validate } from '@angular/forms/signals';
 import { CreateSaleRequest } from '../../interfaces/create-sale-request';
 import Swal from 'sweetalert2';
+import { MyNavbar } from '../../components/my-navbar/my-navbar';
 
 @Component({
+  standalone: true,
   selector: 'app-new-sale-page',
-  imports: [FormField],
+  imports: [FormField, MyNavbar],
   styleUrl: './new-sale-page.css',
   templateUrl: './new-sale-page.html',
 })
