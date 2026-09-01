@@ -60,6 +60,7 @@ namespace SalesWebApi.Business
             // Apply ordering and pagination
             var sales = await query
                 .OrderByDescending(c => c.SaleDate)
+                .ThenByDescending(c => c.SaleId)
                 .Skip((req.Page - 1) * req.PageSize)
                 .Take(req.PageSize)
                 .ToListAsync();
