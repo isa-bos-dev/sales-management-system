@@ -25,7 +25,7 @@ builder.Services.AddCors(opt =>
     opt.AddPolicy("AngularApp", policy =>
     {
         // Target exact Angular development origin without trailing slash
-        policy.WithOrigins("http://localhost:4200/")
+        policy.WithOrigins("http://localhost:4200")
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
