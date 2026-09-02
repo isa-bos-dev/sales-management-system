@@ -53,7 +53,10 @@ namespace SalesWebApi.Business
         public async Task<ApiResponse<GetSalesQueryResponse>> GetAllAsync(GetSalesQueryRequest req)
         {
             // Read-only query without change tracking
-            var query = _db.Sale.AsNoTracking(); // select * from Sale
+            // Include details so list endpoint can return sale details as well
+            var query = _db.Sale
+                .Include(s => s.Details)
+                .AsNoTracking(); // select * from Sale
 
             var totalItems = await query.CountAsync(); // select count(*) from Sale
 
@@ -72,7 +75,12 @@ namespace SalesWebApi.Business
                 CustomerName: s.CustomerName,
                 PaymentTypeName: Enum.GetName(typeof(PaymentType), s.PaymentType)!,
                 Total: s.Total,
-                SaleDate: s.SaleDate.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture)
+                SaleDate: s.SaleDate.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture),
+                Details: s.Details.Select(d => new GetSaleDetailResponse(
+                    ProductName: d.ProductName,
+                    Quantity: d.Quantity,
+                    UnitPrice: d.UnitPrice
+                )).ToList()
             )).ToList();
 
             // Create response with paginated data
