@@ -26,8 +26,6 @@ A full-stack Sales and Order Management Application designed to streamline trans
 
 This application serves as a comprehensive point-of-sale and sales registry tool. It enables businesses to record customer transactions with real-time price calculations, manage multiple payment methods, paginate through transaction records, and inspect granular sale details.
 
----
-
 ## ✨ Features
 
 - **Sales Processing:** Dynamic transaction entry with live subtotal/total calculations and validation guards.
@@ -83,11 +81,7 @@ This application serves as a comprehensive point-of-sale and sales registry tool
 2. Configure your connection string in `appsettings.json`:
     ```json
         "ConnectionStrings": {
-            "DefaultConnection": 
-                "Server=localhost\\SQLEXPRESS;
-                Database=SalesAppDb;
-                Trusted_Connection=True;
-                TrustServerCertificate=True;"
+            "DefaultConnection": "Server=localhost\\SQLEXPRESS;Database=SalesAppDb;Trusted_Connection=True;TrustServerCertificate=True;"
         }
     ```
 
@@ -101,7 +95,7 @@ This application serves as a comprehensive point-of-sale and sales registry tool
         dotnet run
     ```
 
-*Access Scalar API Reference at `http://localhost:<port>/scalar*`
+Access Scalar API Reference at `http://localhost:5197/scalar` while the API is running in Development.
 
 ---
 
@@ -117,20 +111,20 @@ This application serves as a comprehensive point-of-sale and sales registry tool
         npm install
     ```
 
-3. Update the API URL in `src/environments/environment.development.ts`:
+3. The API URL is already configured in `src/environments/environment.development.ts`:
     ```typescript
         export const environment = {
             production: false,
-            apiUrl: 'http://localhost:<YOUR_BACKEND_PORT>/api'
+            apiUrl: 'http://localhost:5197/api'
         };
     ```
 
 4. Start the development server:
     ```bash
-        ng serve -o
+        npm start
     ```
 
-*Application runs at `http://localhost:4200*`
+The application runs at `http://localhost:4200/`.
 
 ---
 
@@ -141,6 +135,12 @@ This application serves as a comprehensive point-of-sale and sales registry tool
 | `POST` | `/api/sale` | Creates a new sale with item details |
 | `GET` | `/api/sale?page={page}&pageSize={size}` | Retrieves paginated sales records |
 | `GET` | `/api/sale/{id}` | Fetches complete details of a specific sale |
+
+---
+
+## 🎥 Application Demo
+
+[![Watch the application demo](https://img.youtube.com/vi/u2u2WNMh_lg/0.jpg)](https://youtu.be/u2u2WNMh_lg)
 
 ---
 

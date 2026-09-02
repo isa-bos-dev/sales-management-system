@@ -25,8 +25,6 @@ Aplicación full-stack de gestión de ventas y pedidos diseñada para registrar 
 
 Esta aplicación funciona como un punto de venta y registro integral de pedidos. Permite a los comercios registrar transacciones de clientes con cálculo dinámico de precios en tiempo real, gestionar múltiples métodos de pago, paginar listados de ventas en el servidor y consultar el desglose detallado de cada comprobante.
 
----
-
 ## ✨ Características Principales
 
 - **Registro Dinámico de Ventas:** Formulario reactivo con cálculo automático de subtotales/totales y validaciones en tiempo real.
@@ -83,11 +81,7 @@ Esta aplicación funciona como un punto de venta y registro integral de pedidos.
 2. Configura tu cadena de conexión en `appsettings.json`:
     ```json
         "ConnectionStrings": {
-            "DefaultConnection": 
-                "Server=localhost\\SQLEXPRESS;
-                Database=SalesAppDb;
-                Trusted_Connection=True;
-                TrustServerCertificate=True;"
+            "DefaultConnection": "Server=localhost\\SQLEXPRESS;Database=SalesAppDb;Trusted_Connection=True;TrustServerCertificate=True;"
         }
     ```
 
@@ -101,7 +95,7 @@ Esta aplicación funciona como un punto de venta y registro integral de pedidos.
         dotnet run
     ```
 
-*Accede a la interfaz interactiva de Scalar en `http://localhost:<puerto>/scalar*`
+Accede a la interfaz interactiva de Scalar en `http://localhost:5197/scalar` mientras la API se ejecute en Development.
 
 ---
 
@@ -118,20 +112,20 @@ Esta aplicación funciona como un punto de venta y registro integral de pedidos.
     ```
 
 
-3. Configura la URL base del backend en `src/environments/environment.development.ts`:
+3. La URL base del backend ya está configurada en `src/environments/environment.development.ts`:
     ```typescript
         export const environment = {
             production: false,
-            apiUrl: 'http://localhost:<PUERTO_BACKEND>/api'
+            apiUrl: 'http://localhost:5197/api'
         };
     ```
 
 4. Inicia el servidor de desarrollo:
     ```bash
-        ng serve -o
+        npm start
     ```
 
-*La aplicación estará disponible en `http://localhost:4200*`
+La aplicación estará disponible en `http://localhost:4200/`.
 
 ---
 
@@ -145,6 +139,12 @@ Esta aplicación funciona como un punto de venta y registro integral de pedidos.
 
 ---
 
+## 🎥 Demo de la aplicación
+
+[![Ver demo de la aplicación](https://img.youtube.com/vi/u2u2WNMh_lg/0.jpg)](https://youtu.be/u2u2WNMh_lg)
+
+---
+
 ## 📄 Licencia
 
-Este proyecto está registrado bajo **Todos los Derechos Reservados** con fines de demostración en portafolio profesional. Consulta el archivo [LICENSE](https://www.google.com/search?q=LICENSE) para más detalles.
+Este proyecto está registrado bajo **Todos los Derechos Reservados** con fines de demostración en portafolio profesional. Consulta el archivo [LICENSE](LICENSE) para más detalles.
