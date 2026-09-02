@@ -77,7 +77,7 @@ Esta aplicación funciona como un punto de venta y registro integral de pedidos.
 
 1. Navega hasta la carpeta del backend:
    ```bash
-   cd src/backend/SalesWebApi
+   cd Backend/SalesWebApi
     ```
 
 2. Configura tu cadena de conexión en `appsettings.json`:
@@ -109,7 +109,7 @@ Esta aplicación funciona como un punto de venta y registro integral de pedidos.
 
 1. Navega hasta la carpeta del frontend:
     ```bash
-        cd src/frontend/sale-app
+        cd Frontend/sale-app
     ```
 
 2. Instala las dependencias de Node:

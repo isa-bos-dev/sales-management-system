@@ -1,6 +1,4 @@
 @SalesWebApi_HostAddress = http://localhost:5197
 
-GET {{SalesWebApi_HostAddress}}/weatherforecast/
-Accept: application/json
 
 ###

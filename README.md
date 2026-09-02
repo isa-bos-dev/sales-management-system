@@ -77,7 +77,7 @@ This application serves as a comprehensive point-of-sale and sales registry tool
 
 1. Navigate to the backend directory:
    ```bash
-        cd src/backend/SalesWebApi
+        cd Backend/SalesWebApi
     ```
 
 2. Configure your connection string in `appsettings.json`:
@@ -109,7 +109,7 @@ This application serves as a comprehensive point-of-sale and sales registry tool
 
 1. Navigate to the frontend directory:
     ```bash
-        cd src/frontend/sale-app
+        cd Frontend/sale-app
     ```
 
 2. Install dependencies:
