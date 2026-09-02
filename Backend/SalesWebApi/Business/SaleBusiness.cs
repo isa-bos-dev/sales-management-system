@@ -28,11 +28,14 @@ namespace SalesWebApi.Business
                 return ApiResponse<int>.Fail("Product name is required");
 
             // Map request DTO to database entity
+            // Compute total server-side from details to avoid trusting client-sent total
+            var computedTotal = req.Details.Sum(d => d.Quantity * d.UnitPrice);
+
             var dbEntity = new Sale()
             {
                 CustomerName = req.CustomerName,
                 PaymentType = (PaymentType)req.PaymentTypeValue,
-                Total = req.Total,
+                Total = computedTotal,
                 Details = req.Details.Select(d => new SaleDetail
                 {
                     ProductName = d.ProductName,

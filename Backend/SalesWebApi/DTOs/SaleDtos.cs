@@ -4,10 +4,10 @@ namespace SalesWebApi.DTOs
 {
 
     #region requests
+    // Total is intentionally omitted from the create request: server computes it from Details
     public record CreateSaleRequest(
         string CustomerName,
         int PaymentTypeValue,
-        decimal Total,
         IEnumerable<CreateSaleDetailRequest> Details);
 
     public record CreateSaleDetailRequest(
