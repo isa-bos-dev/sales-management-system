@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { SaleService } from '../../services/sale-service';
 import { GetSaleResponse } from '../../interfaces/get-sale-response';
@@ -27,12 +27,15 @@ export class DetailSalePage {
     paymentTypeName: '',
     total: 0,
     saleDate: '',
-    details: [{
-      productName: '',
-      quantity: 1,
-      unitPrice: 0
-    }]
+    details: []
   });
+
+  protected readonly total = computed(() =>
+    (this.saleModel().details ?? []).reduce(
+      (sum, detail) => sum + detail.quantity * detail.unitPrice,
+      0
+    )
+  );
 
   constructor() {
     // Read route parameters on component load

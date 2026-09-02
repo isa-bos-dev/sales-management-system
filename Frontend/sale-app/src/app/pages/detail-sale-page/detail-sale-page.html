@@ -70,7 +70,7 @@
                             Total
                         </span>
                         <span class="fs-4 fw-bold text-success">
-                            {{ saleModel().total | currency }}
+                            {{ total() | currency }}
                         </span>
                     </div>
                 </div>
@@ -121,14 +121,6 @@
                                         </td>
                                     </tr>
                                 }
-                                <tr>   
-                                    <td class="text-end">
-                                        unitPrice
-                                    </td>
-                                    <td class="text-end">
-                                       0
-                                    </td>
-                                </tr>
                             </tbody>
                        </table>
                     </div>
